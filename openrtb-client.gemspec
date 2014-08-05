@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'nesty',       '~> 1.0.2'
   s.add_dependency 'typhoeus',    '~> 0.6.9'
 
-  s.add_development_dependency 'minitest', '~> 5.4.0'
-  s.add_development_dependency 'webmock',  '~> 1.18.0'
+  s.add_development_dependency 'rake',     '~> 10.3'
+  s.add_development_dependency 'minitest', '~> 5.2'
+  s.add_development_dependency 'webmock',  '~> 1.18'
 end
