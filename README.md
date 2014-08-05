@@ -1,1 +1,1 @@
-# OpenRTB Client [![Build Status](https://travis-ci.org/realmedia/openrtb-ruby-client.svg?branch=master)](https://travis-ci.org/typhoeus/typhoeus) [![Gem Version](https://badge.fury.io/rb/openrtb-client.svg)](http://badge.fury.io/rb/openrtb-client)
+# OpenRTB Client [![Build Status](https://travis-ci.org/realmedia/openrtb-ruby-client.svg?branch=master)](https://travis-ci.org/realmedia/openrtb-ruby-client) [![Gem Version](https://badge.fury.io/rb/openrtb-client.svg)](http://badge.fury.io/rb/openrtb-client)
