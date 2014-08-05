@@ -1,5 +1,6 @@
 require 'openrtb/version'
 require 'openrtb/error'
 require 'openrtb/null_object'
+require 'openrtb/request'
 require 'openrtb/response'
 require 'openrtb/client'

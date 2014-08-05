@@ -16,7 +16,7 @@ describe OpenRTB::Client do
     } }
 
   before do
-    @client = OpenRTB::Client.new(endpoint)
+    @client = OpenRTB::Client.new
   end
 
   after do
@@ -27,17 +27,32 @@ describe OpenRTB::Client do
     File.new(File.join(File.expand_path('../fixtures', __FILE__), file))
   end
 
-  describe '#request' do
+  describe '#execute' do
     it 'encodes the body and makes the request with the correct headers' do
       stub_request(:post, endpoint).to_return(status: 200, body: fixture('response.json'))
-      response = @client.request(request)
+
+      responses = @client.execute do |q|
+        q.post(endpoint, request)
+      end
 
       assert_requested(:post, endpoint, times: 1) do |req|
         assert_equal MultiJson.dump(request), req.body
         assert_equal headers, req.headers
       end
 
-      response.must_be_instance_of OpenRTB::Response
+      assert_equal responses.size, 1
+      responses.each { |res| assert_instance_of OpenRTB::Response, res }
+    end
+
+    it 'makes multiple requests' do
+      stub_request(:post, endpoint).to_return(status: 200, body: fixture('response.json'))
+
+      responses = @client.execute do |q|
+        q.post(endpoint, request)
+        q.post(endpoint, request)
+      end
+
+      assert_requested(:post, endpoint, times: 2)
     end
   end
 end
