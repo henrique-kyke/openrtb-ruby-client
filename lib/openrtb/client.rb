@@ -1,7 +1,6 @@
 require 'addressable/uri'
 require 'multi_json'
 require 'typhoeus'
-require 'logger'
 
 module OpenRTB
   class Client
