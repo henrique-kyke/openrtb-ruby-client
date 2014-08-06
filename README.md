@@ -21,17 +21,17 @@ client = OpenRTB::Client.new do |cli|
 end
 
 req = {
-  "id": "23629773",
-  "at": 2,
-  "tmax": 150,
-  "imp": [
+  id: "23629773",
+  at: 2,
+  tmax: 150,
+  imp: [
     {
-      "id": "1",
-      "tagid": "0",
-      "banner": {
-        "w": 320,
-        "h": 50,
-        "battr": [
+      id: "1",
+      tagid: "0",
+      banner: {
+        w: 320,
+        h: 50,
+        battr: [
           10,
           14002,
           9
@@ -39,15 +39,21 @@ req = {
       }
     }
   ],
-  "device": {
-    "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36"
-    "ip": "64.60.206.226",
-    "language": "en"
+  site: {
+    id: "90000",
+    domain: "http://rtb.automatethistestplz.com",
+    page: "http://66.150.149.26/qa/rst-mob-23-43-qa-ndb.html"
   },
-  "user": {
-    "id": "091016c886a3676cc7371e291aae0146741357xc",
-    "ext" : {
-      "sessiondepth": 1
+  device: {
+    ua: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36",
+    ip: "64.60.206.226",
+    language: "en",
+    devicetype: 1,
+  },
+  user: {
+    id: "091016c886a3676cc7371e291aae0146741357xc",
+    ext: {
+      sessiondepth: 1
     }
   }
 }
@@ -57,7 +63,13 @@ res = client.execute do |queue|
   queue.post('http://user:pass@api.another-example.com/exchange.json', req)
 end
 
-res.each do |r|
-  pp r
+if res.any?
+  win = res.max_by { |r| r[:seatbid][:bid].first[:price].to_i }
+  puts win.inspect
 end
 ```
+
+## Copyright
+
+Copyright (c) 2014 Realmedia Latin America.
+See [LICENSE](https://github.com/realmedia/openrtb-ruby-client/blob/master/LICENSE) for details.
