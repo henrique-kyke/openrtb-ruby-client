@@ -11,7 +11,7 @@ module OpenRTB
     attr_writer :logger, :max_concurrency, :user_agent, :version
 
     class Queue
-      include NullObject::Conversions
+      include OpenRTB::NullObject::Conversions
 
       def initialize(client, hydra)
         @client = client
