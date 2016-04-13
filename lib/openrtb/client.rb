@@ -1,6 +1,7 @@
 require 'addressable/uri'
 require 'multi_json'
 require 'typhoeus'
+require 'openrtb/null_object'
 
 Typhoeus::Config.memoize = false
 Typhoeus::Config.verbose = false
@@ -11,7 +12,7 @@ module OpenRTB
     attr_writer :logger, :max_concurrency, :user_agent, :version
 
     class Queue
-      include OpenRTB::NullObject::Conversions
+      include NullObject::Conversions
 
       def initialize(client, hydra)
         @client = client
