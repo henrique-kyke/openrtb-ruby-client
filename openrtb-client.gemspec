@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
 
   s.required_ruby_version = '>= 1.9.3'
-  
+
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split('\n')
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'addressable', '~> 2.3.6'
   s.add_dependency 'hashie',      '~> 3.2.0'
-  s.add_dependency 'multi_json',  '~> 1.10.1'
+  s.add_dependency 'multi_json',  '~> 1.11.2'
   s.add_dependency 'naught',      '~> 1.0.0'
   s.add_dependency 'nesty',       '~> 1.0.2'
   s.add_dependency 'typhoeus',    '~> 0.6.9'
