@@ -1,6 +1,7 @@
 require 'addressable/uri'
 require 'multi_json'
 require 'typhoeus'
+require 'openrtb/null_object'
 
 Typhoeus::Config.memoize = false
 Typhoeus::Config.verbose = false
