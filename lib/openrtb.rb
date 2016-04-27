@@ -1,6 +1,3 @@
-require 'openrtb/version'
-require 'openrtb/error'
-require 'openrtb/null_object'
-require 'openrtb/request'
-require 'openrtb/response'
-require 'openrtb/client'
+Dir[File.dirname(__FILE__) + "/openrtb/**/*.rb"].each do |file|
+  require file
+end
